@@ -6,7 +6,7 @@
       dark
     >
       <v-app-bar-nav-icon @click="drawer = !drawer"/>
-      <v-toolbar-title>Page Title</v-toolbar-title>
+      <site-title :title="title"></site-title>
       <v-spacer/>
       <v-btn icon to="/about">
         <v-icon>mdi-magnify</v-icon>
@@ -46,20 +46,16 @@
     <v-content>
       <router-view/>
     </v-content>
-    <v-footer app color="primary" absolute>
-      <v-col
-        class="text-center"
-        cols="12"
-      >
-        {{ new Date().getFullYear() }} — <strong>Vuetify</strong>
-      </v-col>
-    </v-footer>
+    <site-footer :footer="footer"></site-footer>
   </v-app>
 </template>
 
 <script>
+import SiteTitle from '@/components/title'
+import SiteFooter from '@/components/footer'
 
 export default {
+  components: { SiteTitle, SiteFooter },
   name: 'App',
   data () {
     return {
@@ -68,7 +64,9 @@ export default {
         { title: 'Dashboard', icon: 'mdi-view-dashboard' },
         { title: 'Photos', icon: 'mdi-image' },
         { title: 'About', icon: 'mdi-help-box' }
-      ]
+      ],
+      title: '나의 타이틀입니다',
+      footer: '푸터입니다'
     }
   }
 }
