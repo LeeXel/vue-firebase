@@ -1,5 +1,5 @@
 <template>
-  <v-toolbar-title :title="title">
+  <v-toolbar-title>
     {{ title }}
   </v-toolbar-title>
 </template>
